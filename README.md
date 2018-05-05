@@ -1,2 +1,2 @@
 # IFE2018
-front-end learning
+Front-end learning at IFE.
