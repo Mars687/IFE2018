@@ -1,18 +1,23 @@
 body {
   font-family: "Microsoft Yahei","Helvetica","Arial",serif;
-  margin: 1em 15%;
+  margin: 1em 20%;
 }
 
 h3 {
 	font-size: 24px;
 }
 
-.td2 p {
+.information p {
 	display: inline-block;
 	margin-right: 40px;
 }
 
-.td2 span {
+.information span {
 	font-weight: bold;
 	margin-right: 10px;
+}
+
+.th{
+	font-weight: bold;
+	padding-top: 15px;
 }

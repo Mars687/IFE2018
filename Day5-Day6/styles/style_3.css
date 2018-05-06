@@ -1,0 +1,58 @@
+body {
+  font-family: "Microsoft Yahei","Helvetica","Arial",serif;
+  margin: 1em 20%;
+}
+
+h3 {
+	display: block;
+	font-size: 24px;
+	padding-left: 20%;
+}
+
+#headline{
+	color: #fff;
+	background-color: #777;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+}
+
+.information span {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.information p {
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.basic {
+	height: 80px;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+.title {
+	width: 20%;
+	float: left;
+	background-color: #ccc;
+}
+
+.information {
+	width: 80%;
+	float: right;
+}
+
+#resume {
+	border-right: 1px solid #D5D5D5;
+	border-left: 1px solid #D5D5D5;	
+}
+
+.info {
+	padding-left: 10px;
+}
+
+.th{
+	font-weight: bold;
+	float: left;
+}

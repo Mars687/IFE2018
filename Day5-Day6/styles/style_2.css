@@ -1,19 +1,50 @@
 body {
   font-family: "Microsoft Yahei","Helvetica","Arial",serif;
-  margin: 1em 10%;
-  display: inline;
+  margin: 1em 15%;
 }
 
-h1 {
-	color: #fff;
-	background-color: #22B8DD
-
+#resume{
+	overflow: hidden;
+	padding-bottom: 30px;
 }
 
 h3 {
 	font-size: 24px;
 }
 
-#basicinfo {
-	display: inline;
+.information p {
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.information span {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+#headline {
+	width: 20%;
+	float: left;
+	background-color: #22B8DD;
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
+
+}
+
+#headline h1 {
+	color: #fff;
+	padding-top: 20px;
+	padding-left: 35%;
+}
+
+#content {
+	width: 78%;
+	float: right;
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
+}
+
+.th{
+	font-weight: bold;
+	padding-top: 15px;
 }
