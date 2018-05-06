@@ -28,7 +28,6 @@ h3 {
 	background-color: #22B8DD;
 	padding-bottom: 9999px;
 	margin-bottom: -9999px;
-
 }
 
 #headline h1 {
@@ -40,8 +39,6 @@ h3 {
 #content {
 	width: 78%;
 	float: right;
-	padding-bottom: 9999px;
-	margin-bottom: -9999px;
 }
 
 .th{
