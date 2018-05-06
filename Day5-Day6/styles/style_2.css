@@ -1,0 +1,19 @@
+body {
+  font-family: "Microsoft Yahei","Helvetica","Arial",serif;
+  margin: 1em 10%;
+  display: inline;
+}
+
+h1 {
+	color: #fff;
+	background-color: #22B8DD
+
+}
+
+h3 {
+	font-size: 24px;
+}
+
+#basicinfo {
+	display: inline;
+}

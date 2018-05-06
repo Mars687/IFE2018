@@ -1,0 +1,18 @@
+body {
+  font-family: "Microsoft Yahei","Helvetica","Arial",serif;
+  margin: 1em 15%;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+.td2 p {
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.td2 span {
+	font-weight: bold;
+	margin-right: 10px;
+}
