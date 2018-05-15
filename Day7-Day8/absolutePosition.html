@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>absolutePosition</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        #left, #right {
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+        }
+        #left {
+            left: 0;
+            background: blue;
+        }
+        #right {
+            right: 0;
+            background: yellow;
+        }
+        #main {
+            margin: 0 210px;
+            background: red;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    <div id="main"></div>
+    <div id="right"></div>
+    </div>
+</body>
+</html>
