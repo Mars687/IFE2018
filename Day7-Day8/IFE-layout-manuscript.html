@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE布局稿</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            height: 70px;
+        }
+        #header {
+            width: 960px;
+            height: 60px;
+            margin: 0 auto;
+            color: #fff;
+            position: relative;/* header设置相对定位header nav设置绝对定位才能使导航栏靠右对齐，并在容器内显示*/
+        }
+        #logo {
+            font-size: 20px;
+            line-height: 60px;
+        }
+        #header nav {
+            position: absolute;
+            top: 5px;
+            right: 0;
+        }
+        .navigation {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            margin: 0 3px;
+        }
+        #banner {
+            height: 300px;
+            width: 100%;
+            background-color: #4f4;
+
+        }
+        #ban {
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #button {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+        }
+        #button a {
+            text-decoration: none;
+            color:#222;
+            display:inline-block;
+            width:30px;
+            height:35px;
+            opacity:0.6;
+            background-color:#fff;
+            line-height:35px;
+            text-align:center;
+            border:1px solid #111;
+            
+        }
+        #button #active {
+            opacity:1; /*两个id特指度相较于#button a 更高，才能覆盖opacity属性*/
+            padding-top:15px;
+        }
+        #button a:hover {
+            opacity: 1;
+            padding-top: 15px;
+        }
+        #main-nav {
+            margin-top: 20px;
+            width: 100%;
+            height: 51px;
+            border-bottom: solid 1px #999;
+            z-index: 1;
+        }
+        #nav-item {
+            width: 960px;
+            height: 50px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #nav-item a {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            text-align: center;
+            border: solid 1px #999;
+            border-bottom: 0;
+            line-height: 50px;
+            margin: 0 -3px;
+            border-radius: 20px 20px 0 0;
+            background-color: #eee;
+            color: #333;
+        }
+        #nav-item #home {
+            background-color: #fff;
+            height: 51px;
+            z-index: 2;
+        }
+        #nav-item a:hover {
+            background-color: #fff;
+            height: 51px;
+            z-index: 2;
+        }
+        #container {
+            width: 960px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+        .content {
+            display: flex;
+            margin: 10px -10px 10px 0;
+        }
+        .item {
+            height: 60px;
+            border: solid 1px #999;
+            margin-right: 10px;
+            padding: 80px;
+            flex: 1;
+        }
+        #content1, #content2 {
+            flex: 1.5;
+        }
+        footer {
+            width: 960px;
+            height: 70px;
+            background: #333;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div id="logo">Logo</div>
+            <nav>
+                <a href="#" class="navigation">Github</a>
+                <a href="#" class="navigation">Register</a>
+                <a href="#" class="navigation">Login</a>
+            </nav>
+        </div>
+    </header>
+    <section id="banner">
+        <div id="ban">
+            <div id="button">
+                <a href="#">1</a>
+                <a href="#" id="active">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+            </div>
+        </div>
+    </section>
+    <section id="main-nav">
+        <div id="nav-item">
+            <a href="#" id="home">HOME</a>
+            <a href="#">PROFILE</a>
+            <a href="#">ABOUT</a>
+        </div>
+    </section>
+    <div id="container">
+        <div class="content">
+            <div id="content1" class="item">Content 1</div>
+            <div id="content2" class="item">Content 2</div>
+            <div id="content3" class="item">Content 3</div>
+        </div>
+        <div class="content">
+            <div id="content4" class="item">Content 4</div>
+            <div id="content5" class="item">Content 5</div>
+            <div id="content6" class="item">Content 6</div>
+            <div id="content7" class="item">Content 7</div>
+        </div>
+        <div class="content">
+            <div id="content8" class="item">Content 8</div>
+            <div id="content9" class="item">Content 9</div>
+            <div id="content10" class="item">Content10</div>          
+        </div>
+        <footer>© 2018 ife.baidu.com</footer>
+    </div>
+</body>
+</html>
