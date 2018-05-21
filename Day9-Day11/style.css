@@ -1,0 +1,36 @@
+/*引入字体*/
+@font-face {
+	font-family: 'Montserrat-ExtraLight';
+	src: url('./font/Montserrat-ExtraLight.tff') format('truetype');
+}
+body {
+	margin: 0;
+	min-width: 1170px;	/*footer最小宽度为1170px*/
+	font: 16px/1.5 'Montserrat-ExtraLight', Geneva, sans-serif;
+	color: #141414;
+}
+header {
+	height: 100%;
+	width: 100%;
+	background-image: url(./image/Header.png);
+	background-color: #ccc;
+}
+.header {
+	height: 800px;
+	width: 970px;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+}
+h1 {
+	padding: 120px 0 40px 0;
+	font-weight: normal;
+}
+.header .text {
+	padding: 30px 170px;
+	text-align: center;
+}
+.header .form {
+	border: solid 1px #aaa;
+	padding: 40px 0px;
+}
