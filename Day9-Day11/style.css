@@ -28,7 +28,10 @@ li {
 a {
 	text-decoration: none;
 }
-
+ul {
+	margin: 0;
+	padding: 0;
+}
 /* 公用样式 */
 .box {
 	width: 100%;
@@ -255,13 +258,13 @@ a {
 /* 第四部分4th */
 .box-4th {
 	height: 580px;
-	padding-top: 100px;
+	padding-top: 90px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	box-sizing: border-box;
 }
 .box-4th .title {
 	text-align: center;
-	margin-bottom: 80px;
+	margin-bottom: 75px;
 }
 .box-4th .list {
 	display: flex;
@@ -272,8 +275,64 @@ a {
 	text-align: center;
 	box-sizing: border-box;
 	word-break: break-all;
-	padding: 0;
+	padding: 0 10px;
 }
 .box-4th .item:nth-child(2) {
 	margin: 0 75px;
+}
+.box-4th .logo {
+	display: block;
+	height: 45px;
+	width: 125px;
+	margin: 0 auto 30px;
+}
+.box-4th .logo-1 {
+	background: url(./image/4th-1.png) no-repeat;
+}
+.box-4th .logo-2 {
+	background: url(./image/4th-2.png) no-repeat;
+}
+.box-4th .logo-3 {
+	background: url(./image/4th-3.png) no-repeat;
+}
+
+/* 第五部分5th */
+.box-5th {
+	padding: 115px 0px 105px 0px;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.box-5th .item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 350px;
+	position: relative;
+}
+.box-5th .item-img {
+	position: absolute;
+	top: 0;
+	width: 570px;
+	height: 350px;
+	vertical-align: top;
+}
+.box-5th .item:nth-child(odd) {
+	padding-left: 670px;
+}
+.box-5th .item:nth-child(odd) .item-img {
+	left: 0;
+}
+.box-5th .item:nth-child(even) {
+	margin-top: 80px;
+	padding-right: 700px;
+}
+.box-5th .item:nth-child(even) .item-img {
+	right: 0;
+}
+.box-5th .item-title {
+	margin-top: 15px;
+	font-size: 18px;
+	font-weight: 600;
+}
+.box-5th .item-text {
+	width: 300px;
 }
