@@ -7,5 +7,5 @@
 ### [Day3-添加一些色彩](http://blog.venus10.com/IFE2018/Day3/resume)
 ### [Day4-添加背景](http://blog.venus10.com/IFE2018/Day4/resume)
 ### [Day5-Day6-三种简历](http://blog.venus10.com/IFE2018/Day5-Day6/resume)
-### [Day7-Day8-自适应布局](http://blog.venus10.com/IFE2018/Day7-Day8/layout)
-### [Day9-Day11-网站设计](http://blog.venus10.com/IFE2018/Day9-Day11/IFE-Website-Design)
+### [Day7-Day8-学习布局](http://blog.venus10.com/IFE2018/Day7-Day8/layout)
+### [Day9-Day11-来做一个漂亮的网站](http://blog.venus10.com/IFE2018/Day9-Day11/IFE-Website-Design)
