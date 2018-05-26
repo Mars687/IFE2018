@@ -13,7 +13,7 @@ h1,
 h2 {
 	font-weight: normal;
 }
-input {
+input,textarea {
 	background: none;
 	border: none;
 	font: inherit;
@@ -139,6 +139,7 @@ p {
 }
 .box-2nd .text {
 	padding-top: 80px;
+	padding-bottom: 30px;
 	line-height: 30px;
 	font-weight: 600;
 	font-size: 14px;
@@ -167,25 +168,6 @@ p {
 	font-size: 20px;
 	font-weight: 700;
 }
-/*
-.box-2nd .icon {
-	background-image: url(./image/sec_icon.png);
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	top: 2px;
-	left: 0;
-}
-.box-2nd .icon-2nd {
-	background-position: 0 -60px;
-}
-.box-2nd .icon-3rd {
-	background-position: 0 -120px;
-}
-.box-2nd .icon-4th {
-	background-position: 0 -180px;
-}
-*/
 .box-2nd .icon {
 	width: 50px;
 	height: 50px;
@@ -262,7 +244,7 @@ p {
 /* 第四部分4th */
 .box-4th {
 	height: 580px;
-	padding-top: 90px;
+	padding-top: 80px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	box-sizing: border-box;
 }
@@ -276,9 +258,8 @@ p {
 .box-4th .item {
 	flex: 1;
 	line-height: 26px;
-	text-align: center;
+	text-align: justify;
 	box-sizing: border-box;
-	word-break: break-all;
 	padding: 0 10px;
 }
 .box-4th .item:nth-child(2) {
@@ -339,7 +320,7 @@ p {
 	margin-bottom: 30px;
 }
 .box-5th .item-text {
-	width: 300px;
+	width: 310px;
 }
 
 /* 第六部分6th */
@@ -448,34 +429,145 @@ p {
 .box-7th {
 	height: 700px;
 	padding: 70px 0;
+	box-sizing: border-box;
+}
+.box-7th .container {
+	margin-left: 600px;
 }
 .box-7th .form {
 	width: 470px;
 	height: 560px;
 	text-align: center;
 	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .box-7th .form-title {
 	margin: 45px 0; 
 	font-weight: 600;
 }
-.box-7th .form-input {
+.box-7th .form-input,.form-textarea {
 	width: 370px;
 	height: 50px;
 	margin-bottom: 30px;
 	padding-left: 20px;
 	border: 1px solid rgba(0,0,0,0.3);
+	box-sizing: border-box;
 }
-.box-7th .form-input:nth-child(3){
-	height: 145px;
-	padding-top: 20px;
+.box-7th .form-textarea {
+	height: 140px;
+	resize: none;
 }
 .box-7th .form-submit {
-	display: block;
-	width: 390px;
+	width: 370px;
 	height: 50px;
 	color: #fff;
 	background-color: #000;
-	margin-left: 38px;
+	font-size: 12px;
+	border-radius: 2px;
+}
+.box-7th .contact {
+	float: right;
+}
+.box-7th .title {
+	margin: 70px 0 35px;
+}
+.box-7th .text {
+	text-align: left;
+	margin-bottom: 50px;
+}
+.box-7th .item {
+	margin-bottom: 20px;
+	font-weight: bold;
+	position: relative;
+	padding-left: 40px;
+}
+.box-7th .icon {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.box-7th .icon-1 {
+	background: url(./image/7th-1.png) no-repeat;
+}
+.box-7th .icon-2 {
+	background: url(./image/7th-2.png) no-repeat;
+}
+.box-7th .icon-3 {
+	background: url(./image/7th-3.png) no-repeat;
+}
+
+/* footer */
+.footer {
+	background-color: #141414;
+	color: #fff;
+}
+.footer .main {
+	width: 1170px;
+	height: 410px;
+	padding-top: 90px;
 	box-sizing: border-box;
+}
+.footer .list {
+	display: flex;
+}
+.footer .item {
+	flex: 1 170px;
+}
+.footer .item:last-child {
+	flex: 0 270px;
+}
+.footer .item + .item {
+	margin-left: 130px;
+}
+.footer .item-title {
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+.footer .item-link {
+	display: block;
+	margin-top: 30px;
+	color: rgba(255,255,255,0.4);
+}
+.footer .item-text {
+	margin: 30px 0 40px;
+	color: rgba(255,255,255,0.4);
+}
+.footer .button {
+	display: flex;
+	align-items: center;
+}
+.footer .icon {
+	height: 20px;
+	margin-right: 24px;
+	background: url(./image/footer.png) no-repeat;
+}
+.footer .icon-1 {
+	width: 20px;
+	background-position: ;
+}
+.footer .icon-2 {
+	width: 13px;
+	background-position: -46px;
+}
+.footer .icon-3 {
+	width: 28px;
+	background-position: -80px;
+}
+.footer .icon-4 {
+	width: 14px;
+	background-position: -127px;
+}
+.footer .icon-5 {
+	width: 17px;
+	background-position: -166px;
+}
+.footer .icon-6 {
+	width: 20px;
+	background-position: -206px;
 }
