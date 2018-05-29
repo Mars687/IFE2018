@@ -1,0 +1,79 @@
+/* 引入字体 */
+@font-face {
+    font-family: "ProximaNova";
+    src: url('./font/ProximaNova-Regular.otf');
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    font: 14px/1.5 ProximaNova, Arial, sans-serif;
+}
+li {
+    list-style: none;
+}
+/* 布局 */
+.wrap {
+    position: relative;
+    display: flex;
+    height: 100%;
+    min-width: 1300px;
+    overflow: hidden;
+}
+.side {
+    display: flex;
+    width: 350px;
+}
+.menu {
+    width: 250px;
+}
+
+/* 第一列 */
+.app {
+    display: flex;
+    position: relative;
+    background-color: #1d2531;
+}
+.app-btns {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.app-btn {
+    width: 64px;
+    height: 60px;
+    background-image: url(./images/app.png);
+    margin-bottom: 20px;
+}
+.app-btn:nth-child(2) {
+    background-position: 0 -80px;
+}
+.app-btn:nth-child(3) {
+    background-position: 0 -160px;
+}
+.app-btn-add {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #2d3848;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.app-btn-add:before,
+.app-btn-add:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 4px;
+    background-color: #2d3848;
+}
+.app-btn-add:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
