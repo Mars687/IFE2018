@@ -48,6 +48,12 @@ li {
     background-image: url(./images/icon.png);
     background-position: 22px center;
 }
+.icon-error {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background-image: url(./images/error.png);
+}
 /* 第一列 */
 .app {
     position: relative;
@@ -125,7 +131,7 @@ li {
     box-sizing: border-box;
 }
 .menu-trees::-webkit-scrollbar {
-    width: 0;
+    width: 5px;
 }
 .menu-tree {
     border-bottom: 1px solid #2a3547;
@@ -136,4 +142,21 @@ li {
 .menu-item {
     position: relative;
     margin-bottom: 20px;
+    color: #b7c0cd;
+}
+.menu-item .icon-error {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu-item .icon-menu {
+    margin-right: 11px;
+}
+.menu-title {
+    position: relative;
+    margin: 22px 0 20px;
+    font-size: 12px;
+    color: #5b6779;
+    text-transform: uppercase;
 }
