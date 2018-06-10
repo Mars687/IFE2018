@@ -8,17 +8,33 @@ body {
     height: 100%;
     font: 14px/1.5 ProximaNova, Arial, sans-serif;
 }
+h1,
+h2,
+h3,
+p,
+ul {
+    margin: 0;
+}
+h1,
+i {
+    font-size: inherit;
+    font-style: normal;
+}
+ul {
+    padding: 0;
+}
 li {
     list-style: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
 }
 .app {
     flex: 1;
 }
-.side {
-    flex-shrink: 0;
-}
 /* 布局 */
-.wrap {
+.container {
     position: relative;
     display: flex;
     height: 100%;
@@ -31,6 +47,34 @@ li {
 }
 .menu {
     width: 250px;
+}
+.content {
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding-top: 80px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80px;
+    width: 100%;
+}
+.chats {
+    width: 400px;
+}
+.app,
+.content,
+.message {
+    flex: 1;
+}
+.side,
+.menu,
+.chats {
+    flex-shrink: 0;
 }
 /* icon */
 .icon {
@@ -48,11 +92,45 @@ li {
     background-image: url(./images/icon.png);
     background-position: 22px center;
 }
+.icon-books {
+    background-image: url(./images/icon-4.png);
+    background-position: 0px 0px;
+}
+.icon-tutorials {
+    background-image: url(./images/icon-4.png);
+    background-position: 0px -37px;
+}
+.icon-stocks {
+    background-image: url(./images/icon-4.png);
+    background-position: 0px -73px;
+}
+.icon-infographics {
+    background-image: url(./images/icon-4.png);
+    background-position: 0px -108px;
+}
+.menu-item .icon {
+    margin-right: 10px;
+}
 .icon-error {
     display: inline-block;
     width: 26px;
     height: 26px;
     background-image: url(./images/error.png);
+}
+.message-btns .icon {
+    height: 17px; 
+}
+.icon-add {
+    background-image: url(./images/icon-3.png);
+    background-position-x: 0;
+}
+.icon-up {
+    background-image: url(./images/icon-3.png);
+    background-position-x: -36px;
+}
+.icon-del {
+    background-image: url(./images/icon-3.png);
+    background-position-x: -68px;
 }
 /* 第一列 */
 .app {
@@ -127,11 +205,12 @@ li {
 }
 .menu-trees {
     height: 100%;
-    padding: 25px 28px 0;
+    padding: 8px 30px 0;
+    overflow-y: auto;
     box-sizing: border-box;
 }
 .menu-trees::-webkit-scrollbar {
-    width: 5px;
+    width: 0;
 }
 .menu-tree {
     border-bottom: 1px solid #2a3547;
@@ -139,7 +218,7 @@ li {
 .menu-tree:nth-child(3) {
     border-bottom: none;
 }
-.menu-item {
+.menu .menu-item {
     position: relative;
     margin-bottom: 20px;
     color: #b7c0cd;
@@ -159,4 +238,325 @@ li {
     font-size: 12px;
     color: #5b6779;
     text-transform: uppercase;
+}
+.menu-title .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu-link {
+    display: block;
+    text-transform: capitalize;
+}
+.menu-item.active {
+    color: #fff;
+}
+.menu-count {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 10px;
+    border-radius: 13px;
+    color: #fff;
+    background: linear-gradient(to bottom,#2ca0f7,#1a92ec);
+    line-height: 1;
+}
+.menu-goal {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    padding: 30px 20px;
+    background-color: #222c3c;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+.menu-goal-text {
+    display: flex;
+    justify-content: space-between;
+}
+.menu-goal-progress {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    margin-top: 10px;
+    background-color: #2d3848;
+    border-radius: 2px;
+}
+.menu-goal-progress:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 20%;
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(to right, #805de6, #9b8ce3);
+}
+/* 主区域-顶部 */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    font-size: 24px;
+    color: #354052;
+    border-bottom: 1px solid #e6e9ec;
+}
+.user {
+    position: fixed;
+    right: 30px;
+    top: 15px;
+    width: 200px;
+    height: 50px;
+    padding-left: 70px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.user-avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 48px;
+    width: 47px;
+    margin-right: 15px;
+    background-image: url(./images/user.png);
+}
+.user-avatar:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.user-avatar:after {
+    content: '';
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: solid 3px #38a76a;
+    box-sizing: border-box;
+}
+.user-name {
+    font-size: 16px;
+    color: #2399f1;
+}
+.user-level {
+    font-size: 14px;
+    color: #bababa;
+}
+.user .icon-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 8px;
+    background-image: url(./images/arrow.png);
+}
+
+/* 用户列表 */
+.chats {
+    display: flex;
+    flex-direction: column;
+    border-right: solid 1px #e6e9ec;
+    box-sizing: border-box;
+}
+.chats-search {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 30px;
+    border-bottom: 1px solid #e6e9ec;
+}
+.chats-search .input {
+    width: 340px;
+    height: 36px;
+    border: 1px solid #e5e8ee;
+    border-radius: 2px;
+    padding-left: 15px;
+    padding-right: 30px;
+}
+.chats-search .input::placeholder {
+    color: #b5bcc9;
+}
+.icon-search {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    background-image: url(./images/icon-2.png);
+}
+.chats-list {
+    flex: 1;
+    overflow-y: auto;
+}
+.chats-list::-webkit-scrollbar {
+    width: 0;
+}
+.chats-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 130px;
+    padding: 0px 20px 0px 30px;
+    color: #585d68;
+    border-bottom: 1px solid #e6e9ec;
+    box-sizing: border-box;
+}
+.chats-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 48px;
+    padding-left: 67px;
+    margin-bottom: 10px;
+}
+.chats-avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+}
+.avatar-1 {
+    background-image: url(./images/avatar-1.png);
+}
+.avatar-2 {
+    background-image: url(./images/avatar-2.png);
+}
+.avatar-3 {
+    background-image: url(./images/avatar-3.png);
+}
+.avatar-4 {
+    background-image: url(./images/avatar-4.png);
+}
+.avatar-5 {
+    background-image: url(./images/avatar-5.png);
+}
+.avatar-6 {
+    background-image: url(./images/avatar-6.png);
+}
+.avatar-7 {
+    background-image: url(./images/avatar-7.png);
+}
+.chats-name {
+    position: relative;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: bold;
+}
+.chats-time {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    color: #7f8fa4;
+}
+.chats-from {
+    color: #b5b5b5;
+}
+.chats-content {
+    display: flex;
+}
+.chats-item.active:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #2399f1;
+}
+.chats-item.active .chats-name {
+    padding-left: 15px;
+    color: #2399f1;
+}
+.chats-item.active .chats-name:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #2399f1;
+}
+.chats-item.active .chats-text {
+    margin-right: 40px;
+}
+.chats-count {
+    position: absolute;
+    right: 20px;
+    top: 65%;
+    padding: 6px 10px;
+    border-radius: 13px;
+    color: #fff;
+    background: linear-gradient(to bottom,#2ca0f7,#1a92ec);
+    line-height: 1; 
+}
+
+/* 消息记录 */
+.message {
+    display: flex;
+    flex-direction: column;
+}
+.message-hd {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    padding: 0 20px 0 30px;
+    border-bottom: 1px solid #e6e9ec;
+}
+.message-name {
+    color: #585d68;
+    font-size: 18px;
+    padding-right: 15px;
+}
+.message-name:after {
+    content: '';
+    position: absolute;
+    left: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #1bb934;
+}
+.message-btns {
+    display: flex;
+    border: 1px solid #ced0da;
+    border-radius: 3px;
+}
+.message-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 33px;
+    background: linear-gradient(to bottom, #fefeff, #f2f4f8);
+    cursor: pointer;
+}
+.message-btn + .message-btn {
+    border-left: 1px solid #ced0da;
+}
+.message-pagenum {
+    padding: 0 15px 0 22px;
+    margin-left: 23px;
+    border-left: 1px solid #f0f1f4;
+    color: #56688a;
 }
