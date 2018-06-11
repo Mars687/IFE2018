@@ -213,6 +213,7 @@ input {
 
 /* 第二列 */
 .menu {
+    height: 100%;
     position: relative;
     line-height: 20px;
     color: #fff;
@@ -309,6 +310,9 @@ input {
     height: 100%;
     border-radius: 2px;
     background: linear-gradient(to right, #805de6, #9b8ce3);
+}
+.menu-last {
+    margin-bottom: 100px;
 }
 /* 主区域-顶部 */
 .header {
