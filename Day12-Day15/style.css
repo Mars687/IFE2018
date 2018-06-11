@@ -132,6 +132,16 @@ a {
     background-image: url(./images/icon-3.png);
     background-position-x: -68px;
 }
+.btn-arrow {
+    width: 0;
+    height: 0;
+    border-right: 6px solid #ced0da;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+}
+.btn-next {
+    transform: rotate(180deg);
+}
 /* 第一列 */
 .app {
     position: relative;
@@ -166,7 +176,7 @@ a {
     border-radius: 50%;
     box-sizing: border-box;
     cursor: pointer;
-}
+} 
 /* 在app-btn-add的位置画两条短横线 */
 .app-btn-add:before,
 .app-btn-add:after {
@@ -522,11 +532,11 @@ a {
     border-bottom: 1px solid #e6e9ec;
 }
 .message-name {
+    flex: 1;
     color: #585d68;
     font-size: 18px;
-    padding-right: 15px;
 }
-.message-name:after {
+.message-hd .message-name:after {
     content: '';
     position: absolute;
     left: 140px;
@@ -541,13 +551,14 @@ a {
     display: flex;
     border: 1px solid #ced0da;
     border-radius: 3px;
+    overflow: hidden;
 }
 .message-btn {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;   
     width: 36px;
-    height: 33px;
+    height: 30px;
     background: linear-gradient(to bottom, #fefeff, #f2f4f8);
     cursor: pointer;
 }
@@ -559,4 +570,152 @@ a {
     margin-left: 23px;
     border-left: 1px solid #f0f1f4;
     color: #56688a;
+}
+.message-main {
+    flex: 1;
+    overflow-y: auto;
+    line-height: 19px;
+}
+.message-main::-webkit-scrollbar {
+    width: 0;
+}
+.message-list {
+    padding: 25px 30px;
+}
+.message-item {
+    position: relative;
+    padding-left: 67px;
+    color: #585d68;
+}
+.message-list__time {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    color: #7f8fa4;
+    background-color: #d9dde3;
+}
+.message-list__time:after {
+    content: attr(data-time);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 17px;
+    background-color: #fff;
+}
+.message-list__time.new {
+    background-color: #2399f1;
+    color: #2399f1;
+}
+.message-item + .message-item {
+    margin-top: 20px;
+}
+.message-avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 46px;
+    height: 46px;
+}
+.message-name {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #585d68;
+}
+.message-time {
+    padding-left: 8px;
+    font-size: 14px;
+    color: #7f8fa4;
+    font-weight: normal;
+}
+.message-pics {
+    display: flex;
+    margin-top: 15px;
+}
+.message-pic {
+    position: relative;
+    width: 156px;
+    height: 100px;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.message-pic .icon--add {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+.message-pic + .message-pic {
+    margin-left: 10px;
+}
+.message-pic:hover:before,
+.message-pic.hover:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 48, 60, .75);
+}
+.message-pic:hover:after,
+.message-pic.hover:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 50%;
+}
+.message-pic:hover .icon,
+.message-pic.hover .icon {
+    visibility: visible;
+}
+.message-replybar {
+    display: flex;
+    width: 100%;
+    height: 54px;
+    margin-top: 25px;
+    border: 1px solid #dfe3e9;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.message-btn--add {
+    flex-shrink: 0;
+    position: relative;
+    margin-right: -1px;
+    margin-top: -1px;
+    width: 52px;
+    height: 52px;
+    border: 1px solid #ced0da;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    z-index: 1;
+}
+.message-btn--add:before,
+.message-btn--add:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 2px;
+    background-color: #9fa9ba;
+}
+.message-btn--add:after {
+    width: 2px;
+    height: 14px;
+}
+.message-reply__input {
+    flex: 1;
+    padding: 0 30px 0 20px;
+    border: 0;
+    color: #585d68;
 }
