@@ -10,3 +10,4 @@
 ### [Day7-Day8-学习布局](http://blog.venus10.com/IFE2018/Day7-Day8/layout)
 ### [Day9-Day11-来做一个漂亮的网站](http://blog.venus10.com/IFE2018/Day9-Day11/IFE-Website-Design)
 ### [Day12-Day15-复杂页面的实现](http://blog.venus10.com/IFE2018/Day12-Day15/index)
+### [Day16-简易计算器](http://blog.venus10.com/IFE2018/Day16/calculator)

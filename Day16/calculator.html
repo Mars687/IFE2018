@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calculator1</title>
+    <style type="text/css">
+        input {
+            height: 40px;
+            width: 210px;
+            font-size: 24px;
+            text-align: right;
+            padding-right: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 40px;
+            height: 30px;
+            margin: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #efe;
+            border: 1px solid #899;
+            border-radius: 3px;
+        }
+        .wrap {
+            width: 250px;
+            padding: 15px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            background-color: #abd;
+            margin-left: 40%;
+        }
+        .back {
+            width: 95px;
+        }
+        .calc {
+            width: 95px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <input id="input" type="text">
+        <div class="wrap1">
+            <div>
+                <button onclick="clearNum()">C</button>
+                <button class="back" onclick="backNum()">Back</button>
+                <button onclick="inputEvent(this)">/</button>
+            </div>
+            <div>
+                <button onclick="inputEvent(this)">7</button>
+                <button onclick="inputEvent(this)">8</button>
+                <button onclick="inputEvent(this)">9</button>
+                <button onclick="inputEvent(this)">*</button>
+            </div>
+            <div>
+                <button onclick="inputEvent(this)">4</button>
+                <button onclick="inputEvent(this)">5</button>
+                <button onclick="inputEvent(this)">6</button>
+                <button onclick="inputEvent(this)">-</button>
+            </div>
+            <div>
+                <button onclick="inputEvent(this)">1</button>
+                <button onclick="inputEvent(this)">2</button>
+                <button onclick="inputEvent(this)">3</button>
+                <button onclick="inputEvent(this)">+</button>
+            </div>
+            <div>
+                <button onclick="inputEvent(this)">0</button>
+                <button onclick="inputEvent(this)">.</button>
+                <button class="calc" onclick="calculate(this)">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //读取按钮的值，传给输入框
+        function inputEvent(a) {
+            //获取input标签
+            var xsval = document.getElementById("input");
+            if (a == "%") {
+                xsval.value = eval(xsval.value)/100;
+            }
+            //标签里的value连接每个事件的innerHTML值
+            else {
+                //把val的值改为每个事件的innerHTML值
+                var val = a.innerHTML;
+                xsval.value += val;
+            }
+        }
+
+        function calculate() {
+            var xsval = document.getElementById("input");
+            xsval.value = eval(document.getElementById("input").value);
+        }
+
+        function clearNum() {
+            var xsval = document.getElementById("input");
+            xsval.value = '';
+            document.getElementById("input").focus();
+        }
+
+        function backNum() {
+            var arr = document.getElementById("input");
+            arr.value = arr.value.substring(0, arr.value.length-1)
+        }
+    </script>
+</body>
+</html>
