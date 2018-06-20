@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Calculator1</title>
+    <title>Calculator</title>
     <style type="text/css">
         input {
             height: 40px;
@@ -78,15 +78,9 @@
         function inputEvent(a) {
             //获取input标签
             var xsval = document.getElementById("input");
-            if (a == "%") {
-                xsval.value = eval(xsval.value)/100;
-            }
-            //标签里的value连接每个事件的innerHTML值
-            else {
-                //把val的值改为每个事件的innerHTML值
-                var val = a.innerHTML;
-                xsval.value += val;
-            }
+            //把val的值改为每个事件的innerHTML值
+            var val = a.innerHTML;
+            xsval.value += val;
         }
 
         function calculate() {
