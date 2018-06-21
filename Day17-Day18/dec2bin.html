@@ -3,35 +3,87 @@
 <head>
     <title>十进制转化为二进制</title>
     <style type="text/css">
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        h3 {
+            font-size: 20px;
+        }
         input {
             width: 300px;
             height: 30px;
-            font-size: 24px;
+            font-size: 20px;
             text-align: right;
+        }
+        button {
+            height: 30px;
+        }
+        p {
+            font-size: 20px;
+        }
+        .wrap {
+            border: 1px solid rgba(0,0,0,0.15);
+            padding-left: 5%;
+            box-sizing: border-box;
+            margin: 10px;
         }
     </style>
 </head>
 <body>
-    <input id="dec-num" type="number" placeholder="输入一个十进制非负整数">
-    <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
-    <p id="result">运算结果</p>
-
+    <div class="wrap">
+        <h3>十进制转化为二进制</h3>
+        <input id="dec-num" type="number" placeholder="输入一个十进制非负整数">
+        <input id="bin-bit" type="number" placeholder="转化后的二进制位数">
+        <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
+        <p id="result">运算结果</p>
+    </div>
+    <div class="wrap">
+        <h3>3的小游戏</h3>
+        <button id="game" onclick="three()">开始</button>
+        <p id="three"></p>
+    </div>
     <script type="text/javascript">
+        //十进制转化为二进制
         function dec2bin() {
             var dec = parseFloat(document.getElementById("dec-num").value);
-            if (!((typeof dec ==='number') && (dec >= 0) && (dec%1 ===0))) {
-                alert("请输入一个十进制非负整数！");
-            } else {
+            var bits = parseFloat(document.getElementById("bin-bit").value);
+            if(!((typeof dec ==='number') && (dec >= 0) && (dec%1 ===0))) {
+                alert("请在第一个空格输入一个十进制非负整数！");
+            } 
+            else if(!((typeof bits ==='number') && (bits > 0) && (bits%1 ===0))) {
+                alert("请在第二个空格输入一个十进制正整数！");
+            } 
+            else if (dec === 0) {
+                var bin = 0;
+            } 
+            else {
                 var arr = [];
-                var dec2;
                 while(dec !== 0) {
                     arr.unshift(dec%2);
-                    dec2 = Math.floor(dec/2); 
-                    dec = dec2;
+                    dec = Math.floor(dec/2); 
+                }
+                if (arr.length > bits) {
+                    console.log("输入位数小于实际二进制位数");
+                }
+                else {
+                    while(arr.length < bits) {
+                        arr.unshift(0);
+                    }
                 }
                 var bin = arr.join("");
             }
             document.getElementById("result").innerText = "运算结果： " + bin;
+        }
+        //输出100以内所有数，3变为“PA”
+        function three() {
+            var arr = [];
+            for (var i = 1; i < 101; i++) {
+                //3的倍数或者含有“3”替换为“PA”
+                arr.push(i%3===0 || /3/.test(i) ? 'PA' : i);
+            }
+            document.getElementById("three").innerHTML = arr;
         }
     </script>
 </body>
