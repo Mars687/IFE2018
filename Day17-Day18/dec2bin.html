@@ -29,7 +29,6 @@
             margin: 10px;
         }
        #three {
-        width: 1000px;
         word-wrap: break-word;
        }
     </style>
@@ -46,6 +45,25 @@
         <h3>3的小游戏</h3>
         <button id="game" onclick="three()">开始</button>
         <span id="three"></span>
+    </div>
+    <div class="wrap">
+        <h3>九九乘法表</h3>
+        <button id="multiply">开始</button>
+        <table id="multi-item" cellspacing=0></table>
+        <script type="text/javascript">
+            var tableBox = document.querySelector('#multi-item');
+            document.querySelector('#multiply').addEventListener('click', function() {
+                var html = '';
+                for (var i = 1; i <= 9; i += 1) {
+                    html += '<tr>';
+                    for (var j = 1; j <= i; j += 1) {
+                        html += '<td>' + i + ' * ' + j + ' = ' + i * j + '</td>';
+                }
+                    html += '</tr>'
+            }
+            tableBox.innerHTML = html;
+            });
+        </script>
     </div>
     <script type="text/javascript">
         //十进制转化为二进制
