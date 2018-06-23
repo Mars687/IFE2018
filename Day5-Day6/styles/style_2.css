@@ -3,13 +3,30 @@ body {
   margin: 1em 15%;
 }
 
-#resume{
+#resume {
 	overflow: hidden;
 	padding-bottom: 30px;
 }
 
 h3 {
 	font-size: 24px;
+}
+
+.greet {
+    float: right;
+}
+
+.hide {
+	display: none;
+}
+
+.tips {
+	text-align: right;
+	padding-top: 30px;
+}
+
+.tips-text {
+    cursor: pointer;
 }
 
 .information p {

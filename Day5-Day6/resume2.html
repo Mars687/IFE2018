@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Resume</title>
-	<link rel="stylesheet" type="text/css" href="styles/style_2.css" media="screen">
+    <meta charset="utf-8">
+    <title>Resume</title>
+    <link rel="stylesheet" type="text/css" href="styles/style_2.css" media="screen">
 </head>
 <body>
-	<div id="resume">
-		<div id="headline">
-		    <h1>简历</h1>
-		</div>
-
-		<div id="content">
-			<div class="basic">
-				<div class="title">
-					<h3>基本信息</h3>
-				</div>
-				<div class="information">
-					<div class="info">
-						<p><span>姓名</span>张三</p>
-						<p><span>性别</span>男</p>
-						<p><span>应聘职位</span>Web前端工程师</p>
-					</div>
-				</div>
-			</div>
-			<div class="basic">
-				<div class="title">
-					<h3>联系方式</h3>
-				</div>
-				<div class="information">
-					<div class="info">
-						<p><span>手机</span>12312341234</p>
-						<p><span>Email</span><a href="joinefe@baidu.com">joinefe@baidu.com</a></p>
-					    <p><span>个人主页</span><a href=#>Github</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="basic">
-				<div class="title">
-					<h3>能力描述</h3>
-				</div>
-				<div class="information">
-					<div class="info">
-						<div class="th">技术能力</div>
-						<div>熟练掌握HTML, CSS, JavaScript</div>
-						<div class="th">综合能力</div>
-						<div>良好的沟通，主动积极，努力勤奋</div>
-					</div>
-				</div>
-			</div>
-			<div class="basic">
-				<div class="title">
-					<h3>教育经历</h3>
-				</div>
-				<div class="information">
-					<div class="info">
-						<div class="th">本科</div>
-						<div>百度前端技术学院小薇学院</div>
-						<div class="th">研究生</div>
-						<div>百度前端技术学院大斌学院</div>
-					</div>
-				</div>
-			</div>
-			<div class="basic">
-				<div class="title">
-					<h3>项目经历</h3>
-				</div>
-				<div class="information">
-					<div class="info">
-						<div class="th">小度小度</div>
-						<div>作为前端工程师角色参与了ABC组件的开发</div>
-						<div class="th">SAN Doc</div>
-						<div>作为文档工程师参与了SAN Doc编写</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div id="resume">
+        <div id="headline">
+            <h1>简历</h1>
+        </div>
+        <div id="content">
+            <div class="basic">
+                <div class="title">
+                    <h3>基本信息</h3>
+                    <span class="greet"></span>
+                </div>
+                <div class="information">
+                    <div class="info">
+                        <p><span>姓名</span>张三</p>
+                        <p><span>性别</span>男</p>
+                        <p><span>应聘职位</span>Web前端工程师</p>
+                    </div>
+                </div>
+                <div class="tips">
+                    <p class="tips-text">了解更多 >></p>
+                </div>
+            </div>
+            <section class="more hide">
+                <div class="basic">
+                    <div class="title">
+                        <h3>联系方式</h3>
+                    </div>
+                    <div class="information">
+                        <div class="info">
+                            <p><span>手机</span>12312341234</p>
+                            <p><span>Email</span><a href="joinefe@baidu.com">joinefe@baidu.com</a></p>
+                            <p><span>个人主页</span><a href=#>Github</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="basic">
+                    <div class="title">
+                        <h3>能力描述</h3>
+                    </div>
+                    <div class="information">
+                        <div class="info">
+                            <div class="th">技术能力</div>
+                            <div>熟练掌握HTML, CSS, JavaScript</div>
+                            <div class="th">综合能力</div>
+                            <div>良好的沟通，主动积极，努力勤奋</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basic">
+                    <div class="title">
+                        <h3>教育经历</h3>
+                    </div>
+                    <div class="information">
+                        <div class="info">
+                            <div class="th">本科</div>
+                            <div>百度前端技术学院小薇学院</div>
+                            <div class="th">研究生</div>
+                            <div>百度前端技术学院大斌学院</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basic">
+                    <div class="title">
+                        <h3>项目经历</h3>
+                    </div>
+                    <div class="information">
+                        <div class="info">
+                            <div class="th">小度小度</div>
+                            <div>作为前端工程师角色参与了ABC组件的开发</div>
+                            <div class="th">SAN Doc</div>
+                            <div>作为文档工程师参与了SAN Doc编写</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //根据时间问候
+        var date = new Date();
+        var hour = date.getHours();
+        var sdate = date.toDateString();
+        var greet = hour > 18 || hour < 6 ? '晚上好' : hour < 12 ? '早上好' : '下午好';
+        document.querySelector('.greet').innerHTML = greet + '，' + sdate; 
+        //点击了解更多显示信息
+        document.querySelector('.tips-text').addEventListener('click', function() {
+            document.querySelector('.tips').classList.add('hide');
+            document.querySelector('.more').classList.remove('hide');
+        })
+    </script>
 </body>
 </html>

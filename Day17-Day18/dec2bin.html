@@ -18,19 +18,31 @@
         }
         button {
             height: 30px;
+            margin: 10px;
         }
         p {
             font-size: 20px;
 
         }
+        table {
+            border-left: 1px solid rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+        }
+        table td {
+            border-right: 1px solid rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(0,0,0,0.2);
+            padding: 2px 4px;
+        }
         .wrap {
-            border: 1px solid rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.2);
             box-sizing: border-box;
             margin: 10px;
+            padding: 10px;
         }
        #three {
         word-wrap: break-word;
        }
+
     </style>
 </head>
 <body>
@@ -40,33 +52,8 @@
         <input id="bin-bit" type="number" placeholder="转化后的二进制位数">
         <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
         <p id="result">运算结果</p>
-    </div>
-    <div class="wrap">
-        <h3>3的小游戏</h3>
-        <button id="game" onclick="three()">开始</button>
-        <span id="three"></span>
-    </div>
-    <div class="wrap">
-        <h3>九九乘法表</h3>
-        <button id="multiply">开始</button>
-        <table id="multi-item" cellspacing=0></table>
         <script type="text/javascript">
-            var tableBox = document.querySelector('#multi-item');
-            document.querySelector('#multiply').addEventListener('click', function() {
-                var html = '';
-                for (var i = 1; i <= 9; i += 1) {
-                    html += '<tr>';
-                    for (var j = 1; j <= i; j += 1) {
-                        html += '<td>' + i + ' * ' + j + ' = ' + i * j + '</td>';
-                }
-                    html += '</tr>'
-            }
-            tableBox.innerHTML = html;
-            });
-        </script>
-    </div>
-    <script type="text/javascript">
-        //十进制转化为二进制
+            //十进制转化为二进制
         function dec2bin() {
             var dec = parseFloat(document.getElementById("dec-num").value);
             var bits = parseFloat(document.getElementById("bin-bit").value);
@@ -97,7 +84,14 @@
             }
             document.getElementById("result").innerText = "运算结果： " + bin;
         }
-        //输出100以内所有数，3变为“PA”
+        </script>
+    </div>
+    <div class="wrap">
+        <h3>3的小游戏</h3>
+        <button id="game" onclick="three()">开始</button>
+        <p id="three"></p>
+        <script type="text/javascript">
+            //输出100以内所有数，3变为“PA”
         function three() {
             var arr = [];
             for (var i = 1; i < 101; i++) {
@@ -106,6 +100,34 @@
             }
             document.getElementById("three").innerHTML = arr;
         }
-    </script>
+        </script>
+    </div>
+    <div class="wrap">
+        <h3>九九乘法表</h3>
+        <button id="multiply">开始</button>
+        <table id="multi-item" cellspacing="0"></table>
+        <script type="text/javascript">
+            var tableBox = document.querySelector('#multi-item');
+            document.querySelector('#multiply').addEventListener('click', function() {
+                var html = '';
+                for (var i = 1; i <= 9; i++) {
+                    html += '<tr>';
+                    for (var j = 1; j <= i; j++) {
+                        html += '<td>' + j + ' × ' + i + ' = ' + i * j + '</td>';
+                    }
+                    html += '</tr>'
+                }
+                tableBox.innerHTML = html;
+            });
+        </script>
+    </div>
+    <div class="wrap">
+        <button id="link">简历</button>
+        <script type="text/javascript">
+            document.querySelector('#link').addEventListener('click', function() {
+                window.open('http://blog.venus10.com/IFE2018/Day5-Day6/resume2.html');
+            })
+        </script>
+    </div>
 </body>
 </html>
