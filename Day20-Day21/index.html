@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>让你和页面对话</title>
+        <style>
+            select {
+                display: none;
+            }
+            .box {
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+            .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            }
+            .palette li {
+                width: 40px;
+                height: 40px;
+                border: 1px solid #000;
+                cursor: pointer;
+            }
+            #img-box {
+                width: 480px;
+                height: 480px;
+                background-image: url(./erik_ce204002.jpg);
+                background-size: 100% auto;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 练习1 -->
+        <div class="box">
+            <input id="name" type="text" onkeydown="nameInput()">    
+            <button id="submit-btn">Submit</button>
+        </div>
+        <script>
+            //当点击按钮 submit-btn 时，在console中输出 name 中的内容
+            var inputName = document.getElementById('name');
+            document.getElementById('submit-btn').onclick = function() {
+            console.log(inputName.value);
+            }
+            function nameInput() {
+                var keyCode = event.keyCode;
+                // 判断按键键码,回车键在console中输出 name 中的内容
+                // 按 ESC 键，则把输入框中的内容清空
+                if (keyCode === 13) {
+                    console.log(inputName.value);
+                }
+                else if (keyCode === 27) {
+                    inputName.value = null;
+                }
+            }
+        </script>
+        <!-- 练习2 -->
+        <div class="box">
+            <label>
+                <input id="school" name="status" type="radio">
+                School
+            </label>
+            <label>
+                <input id="company" name="status" type="radio">
+                Company
+            </label>
+
+            <select id="school-select">        
+                <option>北京邮电大学</option>
+                <option>黑龙江大学</option>
+                <option>华中科技大学</option>
+            </select>
+
+            <select id="company-select">        
+                <option>百度</option>
+                <option>爱奇艺</option>        
+            </select>
+        </div>
+        <script type="text/javascript">
+            var radio = document.querySelectorAll('input[type="radio"]');
+            for (var i = 0; i < radio.length; i++) {
+                radio[i].onclick = function() {
+                    if(this.checked) {
+                        document.querySelector('select[id=' + this.id + '-select]').style.display = 'block';
+                        document.querySelector('select:not([id=' + this.id + '-select])').style.display = 'none';
+                    }
+                }
+            }
+        </script>
+        <!-- 练习3 -->
+        <div class="box">
+            <ul class="palette">
+                <li style="background-color:crimson"></li>
+                <li style="background-color:bisque"></li>
+                <li style="background-color:blueviolet"></li>
+                <li style="background-color:coral"></li>
+                <li style="background-color:chartreuse"></li>
+                <li style="background-color:darkolivegreen"></li>
+                <li style="background-color:cyan"></li>
+                <li style="background-color:#194738"></li>        
+            </ul>
+
+            <p class="color-picker"></p>
+        </div>
+        <script>
+            var list = document.querySelectorAll("li");
+            for (var i = 0, len = list.length; i < len; i++) {
+                list[i].onclick = function(e) {
+                    var t = e.target;
+                    var c = t.style.backgroundColor;
+                    var p = document.getElementsByClassName("color-picker")[0]
+                    p.innerHTML = c;
+                    p.style.color = c;
+
+                }
+            }
+    </script>
+    <!-- 练习4 -->
+    <div class="box">
+        <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+        <button id="fade-btn">淡出</button>
+    </div>
+    <script type="text/javascript">
+        var fadeObj = document.querySelector('#fade-obj');
+        var fadeBtn = document.querySelector('#fade-btn');
+        var isFadeOut = true; // 判断状态
+
+        fadeBtn.onclick = function() {
+            fadeBtn.disabled = true;
+            if(isFadeOut) {
+                var num = 1;
+                var x = setInterval(function() {
+                    fadeObj.style.opacity = num;
+                    num = num - 0.1;
+                    if (num < 0) {
+                        fadeBtn.innerHTML = '淡入';
+                        
+                        window.clearInterval(x);
+                    }
+                },100);                 
+                
+            }
+            else {
+                var num = 0;
+                var x = setInterval(function() {
+                    fadeObj.style.opacity = num;
+                    num = num + 0.1;
+                    if (num > 1) {
+                        fadeBtn.innerHTML = '淡出';
+                        window.clearInterval(x);
+                    }
+                },100); 
+            }
+            fadeBtn.disabled = false;
+            isFadeOut = !isFadeOut;                              
+        };
+    </script>
+    <!-- 练习5 -->
+    <div class="box">
+        <div id="img-box"></div>
+        <button id="img-btn">开始</button>
+    </div>
+    <script type="text/javascript">
+        var imgBox = document.querySelector('#img-box');
+        var posY = 0; // 背景图纵坐标
+        
+        document.querySelector('#img-btn').onclick = function() {
+            var x = setInterval(function() {
+                //注意，要指定背景图纵坐标backgroundPositionY
+                imgBox.style.backgroundPositionY = posY + 'px';
+                posY -= 480;
+                // 图片到底循环播放第一张
+                if (posY <= -8160) {
+                    posY = 0;
+                }
+            }, 100);
+        };
+    </script>
+    </body>
+</html>

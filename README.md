@@ -13,3 +13,4 @@
 ### [Day16-简易计算器](http://blog.venus10.com/IFE2018/Day16/calculator)
 ### [Day17-Day18-十进制转化为二进制](http://blog.venus10.com/IFE2018/Day17-Day18/dec2bin)
 ### [Day19-找到那个DOM](http://blog.venus10.com/IFE2018/Day19/index)
+### [Day20-Day21-让你和页面对话](http://blog.venus10.com/IFE2018/Day20-Day21/index)
