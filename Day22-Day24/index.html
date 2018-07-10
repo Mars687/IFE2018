@@ -57,7 +57,7 @@
         // 判断是否为数值
         if (btnIndex === '0') {
             var input = document.getElementById('num-' + radio.value);
-            var resultText = checkNumber(input.value).isNum ? '是数字' : '';
+            var resultText = checkNumber(input.value).isNum ? '是数字' : '不是数字';
             //var resultText = !Number(input.value) && input.value !== '0' ? '不是数字' : '是数字';
             return showResult(resultText);
         }
