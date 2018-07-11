@@ -97,5 +97,151 @@
         }
     }
 </script>
+<div class="form2">
+    <label>String A:
+        <input id="radio2-a" type="radio" checked="true" name="str-obj" value="a">
+    </label>
+    <textarea id="str2-a"></textarea>
+    <label>String B:
+        <input id="radio2-b" type="radio" name="str-obj" value="b">
+    </label>
+    <textarea id="str2-b"></textarea>        
+    <label>Num A：<input id="num2-a" type="number" value="0"></label>
+    <label>Num B：<input id="num2-b" type="number" value="1"></label>
+</div>
+<div id="btnBox2" class="btnBox">
+    <button data-index="0">获取当前选中输入的内容长度</button>
+    <button data-index="1">当前选中输入中的第3个字符</button>
+    <button data-index="2">把两个输入框的文字连接在一起输出（concat）</button>
+    <button data-index="3">输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+    <button data-index="4">输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+    <button data-index="5">使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+    <button data-index="6">当前选中输入框的行数</button>
+    <button data-index="7">使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+    <button data-index="8">把所选输入框中的内容全部转为大写</button>
+    <button data-index="9">把所选输入框中的内容全部转为小写</button>
+    <button data-index="10">把所选输入框中内容的半角空格全部去除</button>
+    <button data-index="11">把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+</div>
+<p id="result2"></p>
+<script type="text/javascript">
+    var result2 = document.getElementById('result2');
+    var showResult2 = function(text) {
+        console.log(text);
+        result2.innerHTML = text;
+    }
+    // 判断Num A/B是否都输入正确数值并返回
+    var checkNumber2 = function() {
+        var numA = document.getElementById('num2-a').value;
+        var numB = document.getElementById('num2-b').value;
+        if ((!Number(numA) && numA !== '0') ||(!Number(numA) && numA !== '0')) {
+            showResult2('请确保两个Num都输入正确');
+            return { checked: false };
+        }
+        return {
+            a: Number(numA),
+            b: Number(numB),
+            checked: true,
+        }
+    }
+    document.getElementById('btnBox2').onclick = function(e) {
+        // 判断是否button
+        if (e.target.nodeName.toLowerCase() !== 'button') return false;
+        // 获取button的下标并执行相应事件
+        var btnIndex = e.target.dataset.index;
+        if (!/^[234]$/.test(btnIndex)) {
+            // 有选中项要求的先获取并判断有没有选中项
+            var radio = document.querySelector('.form2 input[type=radio]:checked');
+            if (!radio) return showResult2('请先选择一个输入框');
+            var textarea = document.getElementById('str2-' + radio.value);
+            // 判断是否有输入字符串（不排除全空格情况）
+            var textareaVal = textarea.value;
+            if (!textareaVal) return showResult2('请输入当前选中的值');
+            switch (btnIndex) {
+                case '0':
+                    showResult2('内容长度(不处理空白)：' + textareaVal.length);
+                    break;
+                case '1':
+                    if (textareaVal.length < 3) return showResult2('内容不足3个字符')
+                    showResult2('第3个字符：' + textareaVal[2]);
+                    break;
+                case '5':
+                    var checked25 = checkNumber2();
+                    if (!checked25.checked) return false;
+                    // 参数输入不正确无结果时提示错误信息
+                    var text25 = textareaVal.slice(checked25.a, checked25.b) || '获取失败，请检查输入内容及参数';
+                    showResult2('slice获取：' + text25);
+                    break;
+                case '6':
+                    // 先判断页面上是否已经创建过容器
+                    var parent = document.getElementById('hiddenText');
+                    if (!parent) {
+                        //创建两个DOM元素，外层p用来限制宽度，内层span用来存放文本计算行数
+                        parent = document.createElement('p');
+                        child = document.createElement('span');
+                        parent.id = 'hiddenText';
+                        // 将p的宽度设为和目标textarea等宽并不可见
+                        parent.style.visibility = 'hidden';
+                        parent.style.width = getComputedStyle(textarea).width;
+                        parent.style.height = getComputedStyle(textarea).height;
+                        parent.style.font = getComputedStyle(textarea).font;
+                        // 插入到页面上，不插入无法计算行数
+                        parent.append(child);
+                        document.body.append(parent);
+                    } else {
+                var child = parent.getElementsByTagName('span')[0];
+                }
+                // 将需计算行数的字符串处理换行
+                html = textareaVal.replace(/\r?\n/g, '<br>');
+                // 插入到span内
+                child.innerHTML = html;
+                // getClientRects()方法内换行会被单独计算成一行
+                var rnLength = html.split('<br>').length - 1;
+                console.log(rnLength)
+                // span.getClientRects()获取行数，注：只有inline元素才可正确计算
+                showResult2('输入框行数：' + (child.getClientRects().length - rnLength));
+                break;
+                case '7':
+                    var checked27 = checkNumber2();
+                     if (!checked27.checked) return false;
+                     // 参数输入不正确无结果时提示错误信息
+                     var text27 = textareaVal.substr(checked27.a, checked27.b) || '获取失败，请检查输入内容及参数';
+                     showResult2('substr获取：' + text27);
+                     break;
+                case '8':
+                    showResult2('转为大写：' + textareaVal.toUpperCase());
+                    break;
+                case '9':
+                    showResult2('转为小写：' + textareaVal.toLowerCase());
+                     break;
+                case '10':
+                     // \u0020: 半角空格的Unicode字符串
+                    showResult2('去除半角空格：' + textareaVal.replace(/\u0020/g, ''));
+                    break;
+                case '11':
+                    // 找到非选中的另一个元素值
+                    var textareaVal2 = document.querySelector('.form2 textarea:not(#str2-' + radio.value + ')').value;
+                    showResult2('用 ' + textareaVal2 + ' 替换掉所有大小写a：' + textareaVal.replace(/a/gi, textareaVal2));
+                    break;
+                    default:
+                }
+            } else {
+            var textareaVal1 = document.getElementById('str2-a').value;
+            var textareaVal2 = document.getElementById('str2-b').value;
+            switch (btnIndex) {
+                case '2':
+                  showResult2('文字连接：' + (textareaVal1.concat(textareaVal2) || '空字符串'));
+                  break;
+                case '3':
+                  showResult2('第一次出现的位置：' + textareaVal1.indexOf(textareaVal2));
+                  break;
+                case '4':
+                  showResult2('最后一次出现的位置：' + textareaVal1.lastIndexOf(textareaVal2));
+                  break;
+                default:
+            }
+        }
+    }   
+</script>
 </body>
 </html>
